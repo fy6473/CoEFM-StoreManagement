@@ -12,6 +12,9 @@ function AuthContext({ children }) {
     const stored = localStorage.getItem('user');
     return stored ? JSON.parse(stored) : null;
   });
+  const [token, setToken] = useState(() => {
+    return localStorage.getItem('token') || null;
+  });
 
   useEffect(() => {
     if (user) {
@@ -21,19 +24,35 @@ function AuthContext({ children }) {
     }
   }, [user]);
 
-  const login = (userData) => {
+  useEffect(() => {
+    if (token) {
+      localStorage.setItem('token', token);
+    } else {
+      localStorage.removeItem('token');
+    }
+  }, [token]);
+
+  const login = (userData, authToken) => {
     setUser(userData);
+    setToken(authToken);
   };
 
   const logout = () => {
     setUser(null);
+    setToken(null);
+  };
+
+  const getAuthHeaders = () => {
+    return token ? { Authorization: `Bearer ${token}` } : {};
   };
 
   const value = {
     serverURL,
     user,
+    token,
     login,
     logout,
+    getAuthHeaders,
   };
 
   return (

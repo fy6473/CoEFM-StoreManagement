@@ -19,7 +19,8 @@ const Login = () => {
         password
       }, { withCredentials: true });
       const userData = res.data.user;
-      login(userData);
+      const token = res.data.token;
+      login(userData, token);
       if (userData.role === 'admin') {
         navigate('/admin');
       } else {

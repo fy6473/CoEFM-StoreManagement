@@ -1,27 +1,26 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Sidebar from '../components/Sidebar'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Sidebar from '../components/Sidebar';
+import Navbar from '../components/Navbar';
 
 const AppLayout = () => {
   return (
-    <>
-     <div className="flex">
-      {/* Sidebar stays fixed, width is w-64 (16rem) */}
+    <div className="flex">
+      {/* Sidebar */}
       <Sidebar />
 
-      {/* Main content is always pushed right by ml-64 (16rem) to avoid being hidden */}
-      <div className="flex flex-col ml-64 min-h-screen min-w-0 relative">
+      {/* Main Content with margin to avoid overlap */}
+      <div className="flex flex-col min-h-screen w-full ml-64">
+        {/* Optional fixed Navbar - give it a height if fixed */}
         <Navbar />
-        <div className="flex-grow pt-20 p-4 bg-gray-50">
+
+        {/* Page Content */}
+        <div className="flex-grow px-4 sm:px-6 lg:px-8 py-8 bg-gray-50">
           <Outlet />
         </div>
       </div>
     </div>
-    </>
-  )
-}
+  );
+};
 
-export default AppLayout
+export default AppLayout;

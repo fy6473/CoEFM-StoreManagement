@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaHome, FaUser, FaClipboardList } from 'react-icons/fa';
 import { PiPackageBold } from "react-icons/pi";
-import Dashboard from '../pages/Dashboard';
+
 const Sidebar = () => {
   const location = useLocation();
   const isActive = (path) => location.pathname === path;
@@ -15,7 +15,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-64 h-screen bg-white shadow-lg fixed left-0 top-0 flex flex-col justify-between z-10">
+    <aside className="hidden md:block md:w-64 md:h-screen md:bg-white md:shadow-lg md:fixed md:left-0 md:top-0 md:flex md:flex-col md:justify-between md:z-10">
       <div className="px-4 py-6">
         {/* Logo + Title */}
         <div className="flex flex-col items-center mb-10">
@@ -58,7 +58,7 @@ const Sidebar = () => {
           })}
         </nav>
       </div>
-    </div>
+    </aside>
   );
 };
 

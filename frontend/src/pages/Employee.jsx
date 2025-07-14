@@ -1,12 +1,14 @@
-import React from 'react';
+import React from 'react'
+import EmployeeNavbar from '../components/EmployeeNavbar'
+import EmployeeData from '../components/EmployeeData'
 
 const Employee = () => {
   return (
-    <div>
-      <h1>Employee Dashboard</h1>
-      <p>Welcome, Employee!</p>
-    </div>
-  );
-};
+    <>
+    <EmployeeNavbar/>
+    <EmployeeData/>
+    </>
+  )
+}
 
-export default Employee; 
+export default Employee
