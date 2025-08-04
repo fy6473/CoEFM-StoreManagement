@@ -28,7 +28,9 @@ app.use('/api/auth',authRoute)
 app.use('/api/user',userRoute)
 app.use('/api/items',itemsRouter)
 app.use('/api/assignments', assignmentRoutes);
-
+app.get("/",(req,res)=>{
+    res.send("hello world!")
+})
 // start server 
 app.listen(port,()=>{
     console.log(`Server is running on port ${port}`)

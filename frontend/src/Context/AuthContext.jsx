@@ -7,7 +7,8 @@ export function useAuth() {
 }
 
 function AuthContext({ children }) {
-  const serverURL = "http://localhost:5000";
+  // const serverURL = "https://storemanagement-n4tt.onrender.com";
+    const serverURL = "http://localhost:5000";
   const [user, setUser] = useState(() => {
     const stored = localStorage.getItem('user');
     return stored ? JSON.parse(stored) : null;
